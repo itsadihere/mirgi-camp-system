@@ -1,0 +1,34 @@
+# Secrets / environment-specific config
+includes/db_config.php
+ai_pdf_chatbot/.env
+*.env
+
+# Database dumps (contain patient PII). NOTE: database/schema.sql &
+# database/seed_reference.sql are intentionally NOT ignored (structure only).
+backups/*.sql
+mcms_backups/
+
+# AI chatbot runtime data & vector store (regenerated, can be large)
+ai_pdf_chatbot/data/
+ai_pdf_chatbot/db/
+
+# Python virtualenv & caches (do not deploy these)
+ai_pdf_chatbot/venv/
+ai_pdf_chatbot/__pycache__/
+**/__pycache__/
+*.pyc
+
+# Uploaded media (regenerated per environment; keep out of repo)
+uploads/*
+!uploads/.htaccess
+
+# Logs
+*.log
+logs/*
+!logs/.htaccess
+
+# OS / editor cruft
+Thumbs.db
+.DS_Store
+.idea/
+.vscode/

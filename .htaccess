@@ -1,0 +1,13 @@
+# ── Security hardening (Apache 2.4) ────────────────────────────────
+
+# Never serve secrets, DB dumps, configs, logs, or scripts as plain text
+<FilesMatch "\.(env|sql|ini|log|sh|bak|bat|ps1|dist|lock)$">
+    Require all denied
+</FilesMatch>
+
+# No directory listings
+Options -Indexes
+
+# Block access to VCS / dependency metadata folders if present
+RedirectMatch 404 /\.git
+RedirectMatch 404 /\.env
